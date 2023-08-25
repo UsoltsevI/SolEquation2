@@ -15,14 +15,9 @@ void sol_test(){
     FILE *Test_one;
     Test_one = fopen("C:\\Users\\Veronika\\Desktop\\Test_one.csv", "r");
 
-    const int len_struct_test = 5; ///< int variable for indication number of items required for reading
-    struct keeper_v test [len_struct_test]; ///< array of structure for keeping elements from Test_one file
-
-    int i = 0; ///< int variable for keeping number of items for reading
-
-    /*!
-        Cycle while for read data from Test_one.csv
-        */
+    const int len_struct_test = 5;
+    struct keeper_v test [len_struct_test];
+    int i = 0;
 
     while ((fscanf( Test_one, "%lf%lf%lf%d%lf%lf%s",
                     &(test[i].a), &(test[i].b), &(test[i].c),
@@ -31,10 +26,6 @@ void sol_test(){
             && (i < len_struct_test)){
 
         printf("%s\n", test[i].name);
-
-        /*!
-            Cycle for calling test_code and returns result of testing
-            */
 
         if (test_code(&test[i])){
             printf("OK\n");

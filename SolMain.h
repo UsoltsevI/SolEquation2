@@ -18,8 +18,7 @@ struct roots_s { ///< structure for storing roots and number of roots
     n_roots n;
 };
 
-
-void start_s(struct coeff_s* coeff);
+void start_s(struct coeff_s* coeff, char* argv_c);
 
 void solve_qe(struct coeff_s* coeff, struct roots_s* roots);
 

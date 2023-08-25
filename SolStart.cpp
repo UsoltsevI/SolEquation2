@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "SolStart.h"
-#include <Windows.h>
-#include <wincon.h>
-#include <stdlib.h>
+#include <windows.h>
+#include <string.h>
 
 static void get_input(struct coeff_s* coeff);
 static double input_double();
@@ -10,26 +9,26 @@ static void clean_buffer();
 
 /*!
     This function starts communicating with the user with a brief description
-    of the program. Then start_s(...) asks the user if testing of the program
-    is required. If yes, then start_s(...) starts testing, and then proceeds
-    to get the coefficient values from the keyboard. If testing is not
-    required, start_s(...) immediately proceeds to get the values that it
-    assigns to the coeff structure obtained from main()
+    of the program. start_s(...) takes string argv_c from main(...) and if
+    argv_c == "--test" runs the sol_test(). Then start_s(...) proceeds to get the values that it
+    assigns to the coeff structure obtained from main().
     \param coeff structure for the content of coefficient values
     */
 
-void start_s(struct coeff_s* coeff){
+void start_s(struct coeff_s* coeff, char* argv_c){
 
+    HANDLE color_c;
+    color_c = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    SetConsoleTextAttribute(color_c, 173);
     printf("# Square equation solver\n"
            "# (c) Ded, 2023\n");
+    SetConsoleTextAttribute(color_c, 15);
 
-    printf("Do you want to test this code?\n"
-           "Enter 1, if you want program to test it\n"
-           "Enter any other symbol, if you don't\n");
-
-    bool testing = 0;
-    scanf("%d", &testing);
-    if (testing == 1) { sol_test();}
+    if (argv_c == NULL) {
+        char zero [2] = "0";
+        argv_c = zero;}
+    if (strcmp(argv_c, "--test") == 0) { sol_test();}
 
     get_input(coeff);
 
@@ -99,6 +98,9 @@ static void clean_buffer(){
 
 void output_s(struct roots_s* roots){
 
+    HANDLE color_c;
+    color_c = GetStdHandle(STD_OUTPUT_HANDLE);
+
     switch(roots->n){
 
         case none_s:
@@ -118,11 +120,15 @@ void output_s(struct roots_s* roots){
             break;
 
         case err_s:
+            SetConsoleTextAttribute(color_c, 4);
             printf("There is an ERROR in program");
+            SetConsoleTextAttribute(color_c, 15);
             break;
 
         default:
+            SetConsoleTextAttribute(color_c, 4);
             printf( "void output(struct coeff_s): ERROR: n = %d", roots->n);
+            SetConsoleTextAttribute(color_c, 15);
             break;
         }
 }

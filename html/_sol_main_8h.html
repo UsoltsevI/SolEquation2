@@ -101,8 +101,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a990be6880381b22047872dcaa65d77c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_main_8h.html#a990be6880381b22047872dcaa65d77c6">start_s</a> (struct <a class="el" href="structcoeff__s.html">coeff_s</a> *coeff)</td></tr>
-<tr class="separator:a990be6880381b22047872dcaa65d77c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71989432412b54573e194d4ea41587f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_main_8h.html#a71989432412b54573e194d4ea41587f8">start_s</a> (struct <a class="el" href="structcoeff__s.html">coeff_s</a> *coeff, char *argv_c)</td></tr>
+<tr class="separator:a71989432412b54573e194d4ea41587f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17feb1eb286d1ace6fead880fbda0306"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_main_8h.html#a17feb1eb286d1ace6fead880fbda0306">solve_qe</a> (struct <a class="el" href="structcoeff__s.html">coeff_s</a> *coeff, struct <a class="el" href="structroots__s.html">roots_s</a> *roots)</td></tr>
 <tr class="separator:a17feb1eb286d1ace6fead880fbda0306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68648b78d00891a067b7e3e7f82a88c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_main_8h.html#a68648b78d00891a067b7e3e7f82a88c3">output_s</a> (struct <a class="el" href="structroots__s.html">roots_s</a> *roots)</td></tr>
@@ -187,8 +187,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a990be6880381b22047872dcaa65d77c6" name="a990be6880381b22047872dcaa65d77c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a990be6880381b22047872dcaa65d77c6">&#9670;&#160;</a></span>start_s()</h2>
+<a id="a71989432412b54573e194d4ea41587f8" name="a71989432412b54573e194d4ea41587f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71989432412b54573e194d4ea41587f8">&#9670;&#160;</a></span>start_s()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,12 +197,22 @@ Functions</h2></td></tr>
           <td class="memname">void start_s </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structcoeff__s.html">coeff_s</a> *&#160;</td>
-          <td class="paramname"><em>coeff</em></td><td>)</td>
+          <td class="paramname"><em>coeff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv_c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function starts communicating with the user with a brief description of the program. Then start_s(...) asks the user if testing of the program is required. If yes, then start_s(...) starts testing, and then proceeds to get the coefficient values from the keyboard. If testing is not required, start_s(...) immediately proceeds to get the values that it assigns to the coeff structure obtained from <a class="el" href="_sol_main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main()</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This function starts communicating with the user with a brief description of the program. start_s(...) takes string argv_c from main(...) and if argv_c == "--test" runs the <a class="el" href="_sol_start_8h.html#af5db80a98ae49b5f51db228f5d6af04f">sol_test()</a>. Then start_s(...) proceeds to get the values that it assigns to the coeff structure obtained from <a class="el" href="_sol_main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">coeff</td><td>structure for the content of coefficient values </td></tr>
   </table>
