@@ -13,7 +13,7 @@ static bool test_code(struct keeper_v* test_c);
 void sol_test(){
 
     FILE *Test_one;
-    Test_one = fopen("C:\\Users\\Veronika\\Desktop\\Test_one.csv", "r");
+    Test_one = fopen("Test_one.csv", "r");
 
     const int len_struct_test = 5;
     struct keeper_v test [len_struct_test];

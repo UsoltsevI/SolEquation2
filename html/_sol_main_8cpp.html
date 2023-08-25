@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: SolStart.cpp File Reference</title>
+<title>My Project: SolMain.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,58 +71,35 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">SolStart.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">SolMain.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="_sol_start_8h_source.html">SolStart.h</a>&quot;</code><br />
-<code>#include &lt;windows.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_sol_main_8h_source.html">SolMain.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a71989432412b54573e194d4ea41587f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_start_8cpp.html#a71989432412b54573e194d4ea41587f8">start_s</a> (struct <a class="el" href="structcoeff__s.html">coeff_s</a> *coeff, char *argv_c)</td></tr>
-<tr class="separator:a71989432412b54573e194d4ea41587f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68648b78d00891a067b7e3e7f82a88c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_start_8cpp.html#a68648b78d00891a067b7e3e7f82a88c3">output_s</a> (struct <a class="el" href="structroots__s.html">roots_s</a> *roots)</td></tr>
-<tr class="separator:a68648b78d00891a067b7e3e7f82a88c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sol_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a68648b78d00891a067b7e3e7f82a88c3" name="a68648b78d00891a067b7e3e7f82a88c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68648b78d00891a067b7e3e7f82a88c3">&#9670;&#160;</a></span>output_s()</h2>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void output_s </td>
+          <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structroots__s.html">roots_s</a> *&#160;</td>
-          <td class="paramname"><em>roots</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function gets the robots structure containing the number of roots and their values and, depending on the number of roots, displays different messages on the screen with the values of the roots </p>
-
-</div>
-</div>
-<a id="a71989432412b54573e194d4ea41587f8" name="a71989432412b54573e194d4ea41587f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71989432412b54573e194d4ea41587f8">&#9670;&#160;</a></span>start_s()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void start_s </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structcoeff__s.html">coeff_s</a> *&#160;</td>
-          <td class="paramname"><em>coeff</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv_c</em>&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -131,12 +108,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function starts communicating with the user with a brief description of the program. start_s(...) takes string argv_c from main(...) and if argv_c == "--test" runs the <a class="el" href="_sol_start_8h.html#af5db80a98ae49b5f51db228f5d6af04f">sol_test()</a>. Then start_s(...) proceeds to get the values that it assigns to the coeff structure obtained from <a class="el" href="_sol_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">coeff</td><td>structure for the content of coefficient values </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section author"><dt>Author</dt><dd>Usoltsev Ivan </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25.08.2023 Main creates a structure for storing the coefficients of a quadratic equation and passes it to the start_s(...) function, which starts communicating with the user and receives the values of the coefficients from the keyboard. If (argv[1] == "--test") start_s runs <a class="el" href="_sol_start_8h.html#af5db80a98ae49b5f51db228f5d6af04f">sol_test()</a> to test program. Then <a class="el" href="_sol_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a> passes the coefficients to the solve_qe(...) function and tells her the address of the roots structure, designed to store roots and their number. After <a class="el" href="_sol_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a> sends the roots structure to the output(...) function, which outputs the received values to the screen. This is followed by the completion of the <a class="el" href="_sol_main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a> function </dd></dl>
 
 </div>
 </div>

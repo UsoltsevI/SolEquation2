@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <string.h>
 
+
 static void get_input(struct coeff_s* coeff);
 static double input_double();
 static void clean_buffer();
@@ -59,6 +60,9 @@ static void get_input(struct coeff_s* coeff){
 
 static double input_double(){
 
+    HANDLE color_c;
+    color_c = GetStdHandle(STD_OUTPUT_HANDLE);
+
     double result = 0;
 
     int check = scanf("%lg", &result);
@@ -67,8 +71,10 @@ static double input_double(){
 
         clean_buffer();
 
+        SetConsoleTextAttribute(color_c, 4);
         printf("You have a mistake when entering\n"
                "Try it again\n");
+        SetConsoleTextAttribute(color_c, 15);
 
         return input_double();
     }

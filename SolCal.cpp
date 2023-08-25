@@ -2,6 +2,10 @@
 #include <math.h>
 #include "SolCal.h"
 
+
+
+
+
 /*!
     next comes the connection of the my_assert(...) function through the
     preprocessor. To enable it, you need to define debugon via the command
