@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "SolMain.h"
 
+
 /*!
     \author Usoltsev Ivan
     \version 2
@@ -19,8 +20,8 @@
 
 int main(int argc, char* argv[]){
 
-    struct coeff_s coeff;
-    struct roots_s roots;
+    struct coeff_s coeff = {};
+    struct roots_s roots = {};
 
     start_s(&coeff, argv[1]);
 

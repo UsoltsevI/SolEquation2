@@ -15,25 +15,22 @@ void sol_test(){
     FILE *Test_one;
     Test_one = fopen("Test_one.csv", "r");
 
-    const int len_struct_test = 5;
-    struct keeper_v test [len_struct_test];
-    int i = 0;
+    struct keeper_v test = {};
 
-    while ((fscanf( Test_one, "%lf%lf%lf%d%lf%lf%s",
-                    &(test[i].a), &(test[i].b), &(test[i].c),
-                    &(test[i].n),
-                    &(test[i].x1), &(test[i].x2), test[i].name) != EOF)
-            && (i < len_struct_test)){
 
-        printf("%s\n", test[i].name);
+    while (fscanf( Test_one, "%lf%lf%lf%d%lf%lf%s",
+                    &(test.a), &(test.b), &(test.c),
+                    &(test.n),
+                    &(test.x1), &(test.x2), test.name) != EOF){
 
-        if (test_code(&test[i])){
+        printf("%s\n", test.name);
+
+        if (test_code(&test)){
             printf("OK\n");
         } else {
             printf("ERROR in test\n");
         }
 
-        i++;
     }
 }
 

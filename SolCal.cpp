@@ -12,7 +12,7 @@
 #ifdef debugon
     #define my_assert(test_a) \
         if (!(test_a)) \
-            printf("Assert failed in file %s in line %d\n", __FILE__, __LINE__)
+            printf("Assert failed in file %s in line %d in func%s \n", __FILE__, __LINE__, __func__)
 #else
     #define my_assert(test_a) ;
 #endif
@@ -43,17 +43,12 @@ void solve_qe(struct coeff_s* coeff, struct roots_s* roots){
         Condition for checking the linearity of the equation and solving quadratic equality
         */
 
-    my_assert((-1.7e307 < a) && (a < 1.7e307));
-    my_assert((-1.7e307 < b) && (b < 1.7e307));
-    my_assert((-1.7e307 < c) && (c < 1.7e307));
-
     if (check_equality(a, 0.0)){
         solve_le(coeff, roots);
     } else {
-
         double D = b * b - 4 * a * c;
 
-        my_assert((-1.7e307 < D) && (D < 1.7e307));
+        my_assert(isfinite(D));
 
         if (D < 0){
             roots->n = none_s;
@@ -118,10 +113,8 @@ static void solve_le(struct coeff_s* coeff, struct roots_s* roots){
 
 bool check_equality(double x, double y){
 
-    my_assert((-1.7e307 < x) && (x < 1.7e307));
-    my_assert((-1.7e307 < x) && (y < 1.7e307));
+    const double eps = 1e-6;
 
-    double eps = 0.000001;
     if ((x > (y - eps)) && (x < (y + eps))){
         return true;
     } else {

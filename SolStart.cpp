@@ -8,6 +8,8 @@ static void get_input(struct coeff_s* coeff);
 static double input_double();
 static void clean_buffer();
 
+const HANDLE color_c = GetStdHandle(STD_OUTPUT_HANDLE);
+
 /*!
     This function starts communicating with the user with a brief description
     of the program. start_s(...) takes string argv_c from main(...) and if
@@ -18,17 +20,16 @@ static void clean_buffer();
 
 void start_s(struct coeff_s* coeff, char* argv_c){
 
-    HANDLE color_c;
-    color_c = GetStdHandle(STD_OUTPUT_HANDLE);
-
-    SetConsoleTextAttribute(color_c, 173);
+    SetConsoleTextAttribute(color_c, red_on_green);
     printf("# Square equation solver\n"
            "# (c) Ded, 2023\n");
-    SetConsoleTextAttribute(color_c, 15);
+
+    SetConsoleTextAttribute(color_c, white_on_black);
 
     if (argv_c == NULL) {
-        char zero [2] = "0";
-        argv_c = zero;}
+        char zero [] = "0";
+        argv_c = zero;
+    }
     if (strcmp(argv_c, "--test") == 0) { sol_test();}
 
     get_input(coeff);
@@ -60,9 +61,6 @@ static void get_input(struct coeff_s* coeff){
 
 static double input_double(){
 
-    HANDLE color_c;
-    color_c = GetStdHandle(STD_OUTPUT_HANDLE);
-
     double result = 0;
 
     int check = scanf("%lg", &result);
@@ -71,10 +69,10 @@ static double input_double(){
 
         clean_buffer();
 
-        SetConsoleTextAttribute(color_c, 4);
+        SetConsoleTextAttribute(color_c, red_on_black);
         printf("You have a mistake when entering\n"
                "Try it again\n");
-        SetConsoleTextAttribute(color_c, 15);
+        SetConsoleTextAttribute(color_c, white_on_black);
 
         return input_double();
     }
@@ -104,9 +102,6 @@ static void clean_buffer(){
 
 void output_s(struct roots_s* roots){
 
-    HANDLE color_c;
-    color_c = GetStdHandle(STD_OUTPUT_HANDLE);
-
     switch(roots->n){
 
         case none_s:
@@ -126,15 +121,15 @@ void output_s(struct roots_s* roots){
             break;
 
         case err_s:
-            SetConsoleTextAttribute(color_c, 4);
+            SetConsoleTextAttribute(color_c, red_on_black);
             printf("There is an ERROR in program");
-            SetConsoleTextAttribute(color_c, 15);
+            SetConsoleTextAttribute(color_c, white_on_black);
             break;
 
         default:
-            SetConsoleTextAttribute(color_c, 4);
+            SetConsoleTextAttribute(color_c, red_on_black);
             printf( "void output(struct coeff_s): ERROR: n = %d", roots->n);
-            SetConsoleTextAttribute(color_c, 15);
+            SetConsoleTextAttribute(color_c, white_on_black);
             break;
         }
 }
